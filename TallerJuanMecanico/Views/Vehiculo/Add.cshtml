@@ -1,0 +1,45 @@
+﻿@model TallerJuanMecanico.Models.ViewModels.VehiculoViewModel
+@{
+    ViewBag.Title = "Agregar Vehiculo";
+}
+
+<h2>@ViewBag.Title</h2>
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Add", "Vehiculo", FormMethod.Post, new { role = "form", @class = "" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationMessage("error", new { @class = "text-danger" })
+
+            @Html.LabelFor(d => d.placa)
+            @Html.TextBoxFor(d => d.placa, new { @class = "form-control" })
+            @Html.ValidationMessage("placa", new { @class = "text-danger" })
+            <br />
+
+            @Html.LabelFor(d => d.marca)
+            @Html.TextBoxFor(d => d.marca, new { @class = "form-control" })
+            @Html.ValidationMessage("marca", new { @class = "text-danger" })
+            <br />
+
+            @Html.LabelFor(d => d.modelo)
+            @Html.TextBoxFor(d => d.modelo, new { @class = "form-control" })
+            @Html.ValidationMessage("modelo", new { @class = "text-danger" })
+            <br />
+
+            @Html.LabelFor(d => d.ano)
+            @Html.TextBoxFor(d => d.ano, new { @class = "form-control" })
+            @Html.ValidationMessage("ano", new { @class = "text-danger" })
+            <br />
+
+            @Html.LabelFor(d => d.usuario_Id)
+            @Html.DropDownListFor(model => model.usuario_Id, ViewBag.Items as IEnumerable<SelectListItem>, "-- Seleccionar Usuario --", new { @class = "form-control" })
+            @Html.ValidationMessage("usuario_id", new { @class = "text-danger" })
+
+            <div style="text-align:right">
+                <input type="submit" class="btn btn-success" value="Guardar" />
+            </div>
+        }
+    </div>
+
+</div>
+

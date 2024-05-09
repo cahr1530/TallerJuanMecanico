@@ -1,0 +1,44 @@
+﻿@model TallerJuanMecanico.Models.ViewModels.EditCitaViewModel
+
+@{
+    ViewBag.Title = "Editar Usuario";
+}
+
+<h2>@ViewBag.Title</h2>
+<div class="row">
+<div class="col-md-12">
+    @using(Html.BeginForm("Edit", "Cita", FormMethod.Post, new { role = "form", @class = "" }))
+        {
+        @Html.HiddenFor(d => d.cita_id)
+        @Html.AntiForgeryToken()
+        @Html.ValidationMessage("error", new { @class = "text-danger" })
+        <br />
+        @Html.LabelFor(d => d.fecha_inicio)
+        <br />
+        @Html.EditorFor(model => model.fecha_inicio, new { htmlAttributes = new { @class = "datepicker", @type = "datetime-local" } })
+        @Html.ValidationMessage("fecha_inicio", new { @class = "text-danger" })
+        <br />
+        @Html.LabelFor(d => d.vehiculo_id)
+        @Html.DropDownListFor(d => d.vehiculo_id, ViewBag.Items as IEnumerable<SelectListItem>, "-- Seleccionar Vehiculo --", new { @class = "form-control" })
+        @Html.ValidationMessage("vehiculo_id", new { @class = "text-danger" })
+        <br />
+        @Html.LabelFor(d => d.estado)
+        @Html.DropDownListFor(d => d.estado, ViewBag.Estado as IEnumerable<SelectListItem>, "-- Selecciona el estatus --", new { @class = "form-control" })
+        @Html.ValidationMessage("estado", new { @class = "text-danger" })
+        <br />
+        @Html.LabelFor(d => d.comentario_administrador)
+        @Html.TextAreaFor(d => d.comentario_administrador, new { @class = "form-control" })
+        @Html.ValidationMessage("comentario_administrador", new { @class = "text-danger" })
+        <br />
+        @Html.LabelFor(d => d.comentario_cliente)
+        @Html.TextAreaFor(d => d.comentario_cliente, new { @class = "form-control" })
+        @Html.ValidationMessage("comentario_cliente", new { @class = "text-danger" })
+        <div style="text-align:right">
+            <input type="submit" class="btn btn-success" value="Guardar" />
+        </div>
+    }
+
+</div>
+
+</div>
+

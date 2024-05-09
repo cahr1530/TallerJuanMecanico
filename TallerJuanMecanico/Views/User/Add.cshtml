@@ -1,0 +1,55 @@
+﻿@model TallerJuanMecanico.Models.ViewModels.UserViewModel
+@{
+    ViewBag.Title = "Agregar Usuario";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Add", "User", FormMethod.Post, new { role = "form", @class = "" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationMessage("error", new { @class = "text-danger" })
+
+            @Html.LabelFor(d => d.Nombre)
+            @Html.TextBoxFor(d => d.Nombre, new { @class = "form-control" })
+            @Html.ValidationMessage("Nombre", new { @class = "text-danger" })
+            <br />
+
+            @Html.LabelFor(d => d.Telefono)
+            @Html.TextBoxFor(d => d.Telefono, new { @class = "form-control" })
+            @Html.ValidationMessage("Telefono", new { @class = "text-danger" })
+            <br />
+            @Html.LabelFor(d => d.Direccion)
+            @Html.TextBoxFor(d => d.Direccion, new { @class = "form-control" })
+            @Html.ValidationMessage("Direccion", new { @class = "text-danger" })
+            <br />
+            @Html.LabelFor(d => d.Email)
+            @Html.TextBoxFor(d => d.Email, new { @class = "form-control" })
+            @Html.ValidationMessage("Email", new { @class = "text-danger" })
+            <br />
+
+            @Html.LabelFor(d => d.Password)
+            @Html.PasswordFor(d => d.Password, new { @class = "form-control" })
+            @Html.ValidationMessage("Password", new { @class = "text-danger" })
+            <br />
+            @Html.LabelFor(d => d.confirmpassword)
+            @Html.PasswordFor(d => d.confirmpassword, new { @class = "form-control" })
+            @Html.ValidationMessage("confirmpassword", new { @class = "text-danger" })
+
+            <br />
+            @Html.LabelFor(d => d.rol_id)
+            @Html.DropDownListFor(model => model.rol_id, ViewBag.Items as IEnumerable<SelectListItem>, "-- Seleccionar Rol --" ,new { @class = "form-control" })
+            @Html.ValidationMessage("rol_id", new { @class = "text-danger" })
+
+
+
+
+            <div style="text-align:right">
+                <input type="submit" class="btn btn-success" value="Guardar" />
+            </div>
+        }
+    </div>
+</div>
+
