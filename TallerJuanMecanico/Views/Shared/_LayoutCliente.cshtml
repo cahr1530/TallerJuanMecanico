@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <title>@ViewBag.Title -  Taller Juan Mécanico</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -19,9 +19,8 @@
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Usuarios", "Index", "User", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Vehiculos", "Index", "Vehiculo", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Citas", "Index", "Cita", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Vehiculos", "Index", "UserVehiculo", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Citas", "Index", "UserCita", new { area = "" }, new { @class = "nav-link" })</li>
 
                     <li>@Html.ActionLink("Cerrar sesión", "Logoff", "Cerrar", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>

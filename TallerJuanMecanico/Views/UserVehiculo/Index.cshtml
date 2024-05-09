@@ -1,0 +1,35 @@
+﻿@model List<TallerJuanMecanico.Models.TableViewModels.VehiculoCardViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutCliente.cshtml";
+}
+
+<h2>Mis Vehículos</h2>
+<div class="row">
+    <div class="col-md-12">
+         <input type="button" class="btn btn-dark" onclick="document.location.href='@Url.Content("~/UserVehiculo/Add")'" value="Agregar Vehículo" />
+     </div>
+</div>
+ <br />
+<div class="container">
+        <div class="row">
+            @foreach (var vehiculo in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">@vehiculo.marca @vehiculo.modelo</h5>
+                            <p class="card-text"><strong>Placa:</strong> @vehiculo.placa</p>
+                            <p class="card-text"><strong>Año:</strong> @vehiculo.ano</p>
+                            </div>
+                        <div class="card-footer">
+                            </div>
+                    </div>
+                </div>
+             }
+        </div>
+  </div>
+
+
+
+  

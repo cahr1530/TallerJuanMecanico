@@ -1,0 +1,75 @@
+﻿@model List<TallerJuanMecanico.Models.TableViewModels.VehiculoTableViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Vehiculos</h2>
+<div class="row">
+    <div class="col-md-12">
+        <input type="button" class="btn btn-primary" onclick="document.location.href='@Url.Content("~/Vehiculo/Add")'" value="Nuevo" />
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table table-bordered">
+            <tr>
+                <th>#</th>
+                <th>Placa</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Año</th>
+                <th>Placa</th>
+                <th>Cliente</th>
+                <th>Telefono</th>
+                <th>Email</th>
+                <th>Acciones</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.vehiculo_id</td>
+                    <td>@item.placa</td>
+                    <td>@item.marca</td>
+                    <td>@item.modelo</td>
+                    <td>@item.ano</td>
+                    <td>@item.placa</td>
+                    <td>@item.nombre</td>
+                    <td>@item.telefono</td>
+                    <td>@item.email</td>
+
+
+                    <td>
+                        <input onclick="document.location.href='@Url.Content("~/Vehiculo/Edit/"+item.vehiculo_id)'" type="button" value="Editar" class="btn btn-success">
+
+                        <input onclick="jsDelete(@item.vehiculo_id)" type="button" value="Eliminar" class="btn btn-danger">
+                    </td>
+                </tr>
+            }
+            </table>
+        </div>
+    </div>
+
+
+<script>
+    function jsDelete(vehiculo_id) {
+        if (confirm("¿Está seguro de eliminar este registro?")) {
+            url = "@Url.Content("~/Vehiculo/Delete")" + "/" + vehiculo_id;
+
+
+
+           $.post(url, function (data) {
+
+            if (data == "1") {
+                document.location.href = "@Url.Content("~/Vehiculo/")";
+            }
+            else {
+                alert("Error al eliminar el registro");
+            }
+        });
+
+        }
+
+
+    }
+</script>
