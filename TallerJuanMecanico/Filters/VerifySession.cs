@@ -21,12 +21,12 @@ namespace TallerJuanMecanico.Filters
             }
             else
             {
-                if(filterContex.Controller is AccessController ==true)
-                {
+                 if(filterContex.Controller is AccessController ==true)
+                  {
 
 
-                    filterContex.HttpContext.Response.Redirect("~/Home/Index");
-                }
+                      filterContex.HttpContext.Response.Redirect("~/Home/Index");
+                  }
             }
             base.OnActionExecuting(filterContex);
         }
